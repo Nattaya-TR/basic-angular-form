@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Friend } from './friend';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,6 +9,8 @@ import { Friend } from './friend';
 })
 export class AppComponent {
   title = 'basic-form';
-  FriendModel: any;
-
+  FriendModel = new Friend();
+  languages = ['HTML', 'CSS', 'JavaScript', 'PHP', 'Symfony', 'Angular'];
 }
+
+

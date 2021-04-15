@@ -8,31 +8,35 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 {{ FriendModel | json }}
 <div>
-  <form #friendForm="ngForm">
-    <label for="firstname">Firstname : </label>
-    <input type="text" name="firstname" placeholder="Firstname" [(ngModel)]="FriendModel.firstname"><br><br>
-    <label for="lastname">Lastname : </label>
-    <input type="text" name="lastname" placeholder="Lastname" [(ngModel)]="FriendModel.lastname"><br><br>
-    <label for="email">Email : </label>
-    <input type="text" name="email" placeholder="Email" [(ngModel)]="FriendModel.email"><br><br>
-    <label for="phone">Phone number : </label>
-    <input type="text" name="phone" placeholder="phone number" [(ngModel)]="FriendModel.phone"><br><br>
-    <p>Your favorite languages</p>
+  <form #formName="ngForm">
+    <label>Firstname : </label>
+    <input type="text" name="firstname" placeholder="Firstname" #firstname="ngModel"[(ngModel)]="FriendModel.firstname"><br><br>
+    <div [hidden]="firstname.valid || firstname.pristine" class="alert alert-danger">
+      Your firstname is required!
+    </div>
 
-    <input type="checkbox" name="html" value="html" ngModel="html">
-    <label for="html">HTML</label><br><br>
+    <label>Lastname : </label>
+    <input type="text" name="lastname" placeholder="Lastname" #lastname="ngModel"[(ngModel)]="FriendModel.lastname"><br><br>
+    <div [hidden]="lastname.valid || lastname.pristine" class="alert alert-danger">
+      Your lastname is required!
+    </div>
 
-    <input type="checkbox" name="css" value="css" ngModel="css">
-    <label for="css">CSS</label><br><br>
+    <label>Email : </label>
+    <input type="text" name="email" placeholder="Email" #email="ngModel"[(ngModel)]="FriendModel.email"><br><br>
+    <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+      Your firstname is required!
+    </div>
 
-    <input type="checkbox" name="js" value="js" ngModel="js">
-    <label for="js">JavaScript</label><br><br>
+    <label>Phone number : </label>
+    <input type="text" name="phone" placeholder="phone number" #phoneNumber="ngModel"[(ngModel)]="FriendModel.phoneNumber"><br><br>
+    <div [hidden]="phoneNumber.valid || phoneNumber.pristine" class="alert alert-danger">
+      Your firstname is required!
+    </div>
 
-    <input type="checkbox" name="php" value="php" ngModel="php">
-    <label for="php">PHP</label><br><br>
-
-    <input type="checkbox" name="symfony" value="symfony" ngModel="symfony">
-    <label for="symfony">Symfony</label><br><br>
+    <label>Your favorite languages</label>
+    <select name="lang" ngModel="selectedLang" >
+      <option *ngFor="let lang of languages" [value]="lang">{{lang}}</option>
+    </select>
     <button type="submit">Submit</button>
   </form>
 </div>
