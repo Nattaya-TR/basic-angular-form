@@ -1,0 +1,57 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+{{ FriendModel | json }}
+<div>
+  <form #formName="ngForm">
+    <label>Firstname : </label>
+    <input type="text" class="form-control" id="firstname" ngModel pattern="[a-zA-Z ]*"
+           required  [(ngModel)]="FriendModel.firstname" name="firstname" #firstname="ngModel"><br><br>
+    <div [hidden]="firstname.valid || firstname.pristine" class="alert alert-danger">
+      Your firstname is required!
+    </div>
+
+    <label>Lastname : </label>
+    <input type="text" class="form-control" id="lastname" ngModel pattern="[a-zA-Z ]*"
+           required [(ngModel)]="FriendModel.lastname" name="lastname" #lastname="ngModel"><br><br>
+    <div [hidden]="lastname.valid || lastname.pristine" class="alert alert-danger">
+      Your lastname is required!
+    </div>
+
+    <label>Email : </label>
+    <input type="email"  class="form-control" id="email" ngModel pattern="[a-zA-Z ]*"
+           required [(ngModel)]="FriendModel.email" name="email" #email="ngModel"><br><br>
+    <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+      Your email is required!
+    </div>
+
+    <label>Phone number : </label>
+    <input type="tel"  class="form-control" id="phoneNumber"
+           required [(ngModel)]="FriendModel.phoneNumber" name="phone" #phoneNumber="ngModel"><br><br>
+    <div [hidden]="phoneNumber.valid || phoneNumber.pristine" class="alert alert-danger">
+      Your phone number is required!
+    </div>
+
+    <label>Your favorite languages</label>
+    <select name="lang" ngModel="selectedLang" >
+      <option *ngFor="let lang of languages" [value]="lang">{{lang}}</option>
+    </select>
+    <button type="button" class="btn btn-default" (click)="newFriend(); formName.reset()">Submit</button>
+  </form>
+</div>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<router-outlet></router-outlet>
