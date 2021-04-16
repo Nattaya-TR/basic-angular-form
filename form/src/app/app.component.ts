@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   FriendModel = new Friend();
   languages = ['HTML', 'CSS', 'JavaScript', 'PHP', 'Symfony', 'Angular'];
   submitted = false;
-  AllFriends = [{firstname: 'Coach', lastname: 'Tim', email: 'tim.broos@becode.org', phoneNumber: '0469420666', languages: 'JavaScript'}];
+  AllFriends = [{firstname: 'Coach', lastname: 'Tim', email: 'tim.broos@becode.org', phoneNumber: '0469420666', language: 'JavaScript'}];
   url = 'http://localhost:9003/allFriends';
 
   onSubmit(): void {
