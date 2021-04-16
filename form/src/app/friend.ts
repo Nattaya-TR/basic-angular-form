@@ -4,7 +4,7 @@ export class Friend {
     public lastname?: string,
     public email?: string,
     public phoneNumber?: number,
-    public languages?: string
+    public language?: string
 
   ){}
 }
